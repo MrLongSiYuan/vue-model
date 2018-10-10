@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input v-model="name">
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">click me!</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+
+<script>
+    new selfVue({
+            el: '#app',
+            data: {
+                title: 'hello world',
+                name: 'canfoo'
+            },
+            methods: {
+                clickMe: function () {
+                    this.title = 'hello world';
+                }
+            },
+            mounted: function () {
+                window.setTimeout(() => {
+                    this.title = '你好';
+                }, 1000);
+            }
+        });
+</script>
